@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IQ测试</title>
+    <script src="./lib/vue.min.js"></script>
+    <link href="./lib/bootstrap-3.3.7.css" rel="stylesheet" />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .problem_area{
+            border: 1px solid rgba(95, 104, 95, 0.2) ;
+            height: 150px;
+            margin-top: -9px;
+        }
+        tr td{
+            font-size: 20px;
+            color: rgba(21, 22, 21, 0.5);
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id='mainBox' style="text-align:center;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" >记忆力测试</h3>
+            </div>
+        </div>
+        <div class="page-header" style='border-bottom: none; margin-top: -5px;'>
+            <h1>
+                {{pageIndex}}<small>/10 &nbsp;<span style='font-size: 22px;'>请将注意力集中在下面的区域</span></small>
+            </h1>
+        </div>
+        <div class="problem_area" style="text-align:center;padding-top: 30px">
+            <h1 v-text='datanumber'></h1>
+        </div>
+        <div class="table-hover" style='padding: 10px;'>
+            <table class="table table-hover" style='border: 1px rgba(95, 104, 95, 0.2) solid;'>
+                <tbody>
+                    <tr v-for='item in datalist'>
+                        <td>
+                            <li v-text="item" @click="answerClick(item)"></li>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" @click="seeAnswer" id="see" class="btn btn-primary" style="width:200px;height:50px; font-size:20px;">查看结果</button><br>
+        <button type="button" @click="tryAgain" id="try" class="btn btn-primary" style="width:200px;height:50px; font-size:20px;margin-top: 4px;">再试一次</button>
+        
+    </div>
+    <script src="./lib/handle.js"></script>
+</body>
+</html>
